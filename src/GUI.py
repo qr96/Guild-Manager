@@ -17,8 +17,7 @@ class MainWindow(QMainWindow, form_class) :
     def __init__(self) :
         super().__init__()
         self.setupUi(self)
-        self.setWindowTitle('Maple Guild Manager V1.0.0 by 뒤로')
-
+        self.setWindowTitle('Maple Guild Manager V1.1.0')
 
         #버튼 객체에 함수 연결
         self.searchBtn.clicked.connect(self.search)
@@ -35,7 +34,7 @@ class MainWindow(QMainWindow, form_class) :
 
         #아이콘 설정
         try:
-            self.setWindowIcon(QIcon('src/img/icon1.png'))
+            self.setWindowIcon(QIcon('src/img/icon3.jpg'))
         except:
             print('Icon err')
 
@@ -64,13 +63,15 @@ class MainWindow(QMainWindow, form_class) :
             name = QTableWidgetItem(self.members[i][0])
             position = QTableWidgetItem(self.members[i][1])
             level = QTableWidgetItem(self.members[i][2])
+            mission = QTableWidgetItem(self.members[i][-3])
             suro = QTableWidgetItem(self.members[i][-2])
             flag = QTableWidgetItem(self.members[i][-1])
             tb.setItem(i, 0, name)
             tb.setItem(i, 1, position)
             tb.setItem(i, 2, level)
-            tb.setItem(i, 3, suro)
-            tb.setItem(i, 4, flag)
+            tb.setItem(i, 3, mission)
+            tb.setItem(i, 4, suro)
+            tb.setItem(i, 5, flag)
         print('updated Table')
 
 

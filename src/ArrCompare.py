@@ -2,24 +2,30 @@
 #단어 비교 함수
 def compare(arr_a, arr_b):
     for a in arr_a:
-        print(a)
         for b in arr_b:
             #유사한 경우
             if similar(a[0], b[0]) >= 0.5:
-                if a[-2] == 'I' or a[-2] == 'I!':
+                #주간 미션
+                if(len(a[-3])==1):
+                    b[-3] = a[-3]
+                
+                #수로 점수
+                if a[-2] == 'I' or a[-2] == 'I!' or a[-2] == '1':
                     b[-2] = '0'
                 elif a[-2].isdigit:
                     b[-2] = a[-2]
-
-                if a[-1] == 'I' or a[-1] == 'I!' or a[-1] == "ø" or a[-1] == "1":
+    
+                #플래그 점수
+                if a[-1] == 'I' or a[-1] == 'I!' or a[-1] == "ø" or a[-1] == "1" or a[-1]=="l0":
                     b[-1] = '0'
                 elif a[-1][0:2] == "10":
                     b[-1] = '100'
-                elif a[-1][0:2].isdigit:
+                elif len(a[-1])==3 and a[-1][0]=='1' and a[-1][2]=='0':
+                    b[-1] = '100'
+                elif len(a[-1])==3 and a[-1][0:2].isdigit:
                     b[-1] = a[-1][0:2]+'0'
                 elif a[-1].isdigit:
                     b[-1] = a[-1]
-
     return arr_b
 
 

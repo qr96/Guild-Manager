@@ -72,7 +72,7 @@ class AppDemo(QWidget):
 
         self.setLayout(mainLayout)
 
-
+    #이미지 드래그 앤 드롭 함수들
     def dragEnterEvent(self, event):
         if event.mimeData().hasImage:
             event.accept()
@@ -112,7 +112,7 @@ class AppDemo(QWidget):
         except:
             print("err")
 
-
+    #Ctrl + V 함수들
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_Control:
             self.ctrl_flag = True
