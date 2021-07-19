@@ -65,7 +65,7 @@ def kakao_ocr(image_path: str, appkey: str):
 # 반환 [닉네임, 직업, 레벨, 직위, 주간미션, 수로, 플래그 ]
 def test(image_path):
     #image_path = "img/test2.png"
-    appkey = '81cd7707feba4c741cdc6391f99801ff';
+    appkey = '';
 
     resize_impath = kakao_ocr_resize(image_path)
     if resize_impath is not None:
